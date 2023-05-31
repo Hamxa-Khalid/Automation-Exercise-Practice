@@ -1,95 +1,95 @@
 export class RegisterUser {
 
     getLoginPageButtonSelector() {
-            return '[href="/login"]';
+        return '[href="/login"]';
     }
 
     getSignUpFormHeader() {
         return '.signup-form';
     }
 
-    getSignUpNameTextBoxSelector(){
+    getSignUpNameTextBoxSelector() {
         return '[data-qa="signup-name"]';
     }
 
-    getSignUpEmailTextboxSelector(){
+    getSignUpEmailTextboxSelector() {
         return '[data-qa="signup-email"]';
     }
 
-    getSignUpButtonSelector(){
+    getSignUpButtonSelector() {
         return '[data-qa="signup-button"]';
     }
 
-    getMrRadioButtonSelector(){
+    getMrRadioButtonSelector() {
         return cy.get('#id_gender1[value="Mr"]');
     }
 
-    getPasswordTextBoxSelector(){
+    getPasswordTextBoxSelector() {
         return cy.get('#password[name="password"]');
     }
 
-    getSignUpToNewsLetterCheckBoxSelector(){
+    getSignUpToNewsLetterCheckBoxSelector() {
         return cy.get('input[name="optin"]');
     }
 
-    getReceiveSpecialOffersCheckBoxSelector(){
+    getReceiveSpecialOffersCheckBoxSelector() {
         return cy.get('input[name="optin"]');
     }
 
-    getFirstNameTextboxSelector(){
+    getFirstNameTextboxSelector() {
         return cy.get('#first_name[name="first_name"]');
     }
 
-    getLastNameTextboxSelector(){
+    getLastNameTextboxSelector() {
         return cy.get('input[name="last_name"]');
     }
 
-    getCompanyTextboxSelector(){
+    getCompanyTextboxSelector() {
         return cy.get('#company');
     }
 
-    getAddress1TextBoxSelector(){
+    getAddress1TextBoxSelector() {
         return cy.get('#address1[name="address1"]');
     }
 
-    getAddress2TextBoxSelector(){
+    getAddress2TextBoxSelector() {
         return cy.get('#address2[name="address2"]');
     }
 
-    getStateTextBoxSelector(){
+    getStateTextBoxSelector() {
         return cy.get('#state');
     }
 
-    getCityTextBoxSelector(){
+    getCityTextBoxSelector() {
         return cy.get('#city');
     }
 
-    getZipCodeTextBoxSelector(){
+    getZipCodeTextBoxSelector() {
         return cy.get('#zipcode');
     }
 
-    getMobileNumberTextboxSelector(){
+    getMobileNumberTextboxSelector() {
         return cy.get('#mobile_number');
     }
 
-    getCreateAccountButtonSelector(){
+    getCreateAccountButtonSelector() {
         return cy.get('[data-qa="create-account"]');
     }
 
-    homePage () {
+    homePage() {
         /// Navigating to Sign Up Page
         cy.get(this.getLoginPageButtonSelector()).should('have.text', ' Signup / Login').click();
         cy.get(this.getSignUpFormHeader()).contains('New User Signup!').should('be.visible');
     }
 
-    createUser (randomName,randomEmail) {
+    createUser(randomName, randomEmail) {
         /// Create User
         cy.get(this.getSignUpNameTextBoxSelector()).type(randomName);
         cy.get(this.getSignUpEmailTextboxSelector()).type(randomEmail);
-        cy.get(this.getSignUpButtonSelector()).click(); 
+        cy.get(this.getSignUpButtonSelector()).click();
     }
 
-    fillInfo (data,randomPassword) {
+    fillInfo(data, randomPassword) {
 
         /// Fill Up User Information Form
         this.getMrRadioButtonSelector().check();
@@ -116,27 +116,27 @@ export class RegisterUser {
         this.getCreateAccountButtonSelector().click();
     }
 
-    getAccountCreatedHeadingSelector(){
+    getAccountCreatedHeadingSelector() {
         return cy.get('[data-qa="account-created"]');
     }
 
-    getContinueButtonSelector(){
+    getContinueButtonSelector() {
         return cy.get('[data-qa="continue-button"]');
     }
 
-    verification () {
+    verification() {
         /// Verify User Is Loged In 
         cy.get(".navbar-nav>li>a").contains(' Logged in as ').should('be.visible');
     }
 
-    deleteAccount () {
-        
+    deleteAccount() {
+
         /// Delete Account
         cy.get('[href="/delete_account"]').click();
         cy.get('[data-qa="account-deleted"]').contains('Account Deleted!').should('be.visible');
         cy.get('[data-qa="continue-button"]').click();
     }
-    
-    
+
+
 
 }
