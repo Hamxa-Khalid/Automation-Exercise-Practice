@@ -1,0 +1,4 @@
+# ignoring node modules folder
+/node_modules
+# cypress files
+/cypress/downloads

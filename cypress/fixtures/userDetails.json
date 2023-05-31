@@ -1,0 +1,16 @@
+{
+    "userInfo" : {
+        "firstName" : "Hamza",
+        "lastName" : "Khalid",
+        "companyName" : "Spring Synergy",
+        "address" : "abc street pakistan",
+        "state" : "Pakistan",
+        "city" : "Sargodha",
+        "zipCode": "40100",
+        "mobileNumber" : "03214567890"
+    },
+    "loginDetails" : {
+        "email" : "hamxi8381@gmail.com",
+        "password" : "hamza123"
+    }
+}
